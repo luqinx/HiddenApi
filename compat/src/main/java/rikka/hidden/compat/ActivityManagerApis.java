@@ -24,6 +24,7 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteException;
 
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
@@ -63,6 +64,7 @@ public class ActivityManagerApis {
         IContentProvider provider;
         if (Build.VERSION.SDK_INT >= 29) {
             contentProviderHolder = am.getContentProviderExternal(name, userId, token, tag);
+            Log.e("xbinder", "contentProviderHolder: " + contentProviderHolder);
             provider = contentProviderHolder != null ? contentProviderHolder.provider : null;
         } else if (Build.VERSION.SDK_INT >= 26) {
             contentProviderHolder = am.getContentProviderExternal(name, userId, token);

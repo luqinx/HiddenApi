@@ -2,19 +2,18 @@ package rikka.hidden.compat;
 
 import static rikka.hidden.compat.Services.packageManager;
 
+
 import android.annotation.SuppressLint;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.IPackageManager;
 import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.content.pm.ParceledListSlice;
 import android.content.pm.ProviderInfo;
 import android.os.Build;
 import android.os.RemoteException;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.os.BuildCompat;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -178,6 +177,16 @@ public class PackageManagerApis {
             return getApplicationHiddenSettingAsUser(packageName, userId);
         } catch (Throwable tr) {
             return true;
+        }
+    }
+
+    public static void grantRuntimePermissionNoThrow(@NonNull String packageName,
+                                                     @NonNull String permName) {
+        try {
+            if (packageManager.get().checkPermission(packageName, permName, 0) != PackageManager.PERMISSION_GRANTED) {
+                packageManager.get().grantRuntimePermission(packageName, permName, 0);
+            }
+        } catch (Throwable ignore) {
         }
     }
 

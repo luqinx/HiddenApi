@@ -45,6 +45,10 @@ public interface IActivityManager extends IInterface {
     void forceStopPackage(String packageName, int userId)
             throws RemoteException;
 
+    void setAlwaysFinish(boolean enabled);
+
+    List<ActivityManager.RunningAppProcessInfo> getRunningAppProcesses();
+
     int startActivityAsUser(IApplicationThread caller, String callingPackage,
                             Intent intent, String resolvedType, IBinder resultTo, String resultWho,
                             int requestCode, int flags, ProfilerInfo profilerInfo,

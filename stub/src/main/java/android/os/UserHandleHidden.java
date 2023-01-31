@@ -19,4 +19,6 @@ public class UserHandleHidden {
     public UserHandleHidden(int h) {
         throw new RuntimeException();
     }
+
+    public int getUserId(int uid) { throw new RuntimeException(); }
 }

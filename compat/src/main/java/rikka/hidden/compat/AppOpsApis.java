@@ -13,7 +13,6 @@ import androidx.annotation.IntDef;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
-import androidx.core.util.Preconditions;
 
 import com.android.internal.app.IAppOpsActiveCallback;
 import com.android.internal.app.IAppOpsNotedCallback;

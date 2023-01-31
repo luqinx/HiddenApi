@@ -3,16 +3,15 @@ package rikka.hidden.compat;
 import static rikka.hidden.compat.Services.activityManager;
 import static rikka.hidden.compat.Services.userManager;
 
+
 import android.annotation.SuppressLint;
 import android.app.ActivityManagerHidden;
 import android.content.pm.UserInfo;
 import android.os.Build;
 import android.os.IUserManager;
 import android.os.RemoteException;
-
+import android.util.ArraySet;
 import androidx.annotation.NonNull;
-import androidx.collection.ArraySet;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
